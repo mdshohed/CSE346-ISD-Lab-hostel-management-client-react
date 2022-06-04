@@ -17,12 +17,26 @@ const Navbar = () => {
   const menuItems = <>
     <li><Link to="/">Home</Link></li>
     <li><Link to="/contact">Contact</Link></li>
-    <li><Link to="/"></Link></li>
+    <li><Link to="/notification">Notification</Link></li>
     {
       user && <li><Link to="/dashboard">Dashboard</Link></li>
     }
     <li>{user ? 
-    <button className='btn btn-ghost' onClick={logout}>SignOut</button>
+      <div className="dropdown-close">
+          <div class="avatar placeholder">
+            <div class="bg-neutral-focus text-neutral-content rounded-full w-8">
+              <span class="text-xs"></span>
+            </div>
+          </div>
+        <div class="dropdown dropdown-end dropdown-hover">
+          <label class="">Account</label>
+          <ul class="dropdown-content p-1 menu shadow bg-base-100 rounded-box w-52 ">
+            {/* <li><a>Profile</a></li> */}
+            <li><button className='btn btn-ghost' onClick={logout}>SignOut</button></li>
+          </ul>
+        </div>
+      </div>
+    // <button className='btn btn-ghost' onClick={logout}>SignOut</button>
     : <Link to="/login">Login</Link>}</li>
   </>
   return (

@@ -1,9 +1,10 @@
-import React, { useRef } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import React, { useEffect, useRef } from 'react';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init.js';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Loading from '../Shared/Loading.js';
 
 
 const Login = () => {
@@ -16,18 +17,22 @@ const Login = () => {
     error,
   ] = useSignInWithEmailAndPassword(auth);
 
+  const [userAuth] = useAuthState(auth); 
 
 
   const navigate = useNavigate(); 
   const location = useLocation(); 
   let from = location.state?.from?.pathname || "/";
 
+  if(userAuth || user || gUser) {
+    navigate(from, { replace: true });
+  }
 
+  if( loading || gLoading) {
+    return <Loading></Loading>
+  }
 
-  // if( loading || gLoading) {
-  //   return <Loading></Loading>
-  // }
-  let signInError = ''; 
+  let signInError; 
 
   if( error || gError) {
     signInError = <p className='text-red-500'>{error?.message || gError?.message}</p>

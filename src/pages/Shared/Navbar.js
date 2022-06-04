@@ -16,8 +16,8 @@ const Navbar = () => {
 
   const menuItems = <>
     <li><Link to="/">Home</Link></li>
-    <li><Link to="/blogs">Blogs</Link></li>
-    <li><Link to="/myPortfolio">My Portfolio</Link></li>
+    <li><Link to="/contact">Contact</Link></li>
+    <li><Link to="/"></Link></li>
     {
       user && <li><Link to="/dashboard">Dashboard</Link></li>
     }
@@ -37,7 +37,7 @@ const Navbar = () => {
           {menuItems}
           </ul>
         </div>
-        <Link as={Link} to="/" className="btn btn-ghost normal-case text-xl">Photography Camera</Link>
+        <Link as={Link} to="/" className="btn btn-ghost normal-case text-xl">BlueBirds Hostel</Link>
       </div>
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal p-0">

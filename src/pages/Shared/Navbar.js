@@ -1,12 +1,13 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
+  const location = useLocation();
   // const navigate = useNavigate();
 
   const logout = () => {
@@ -59,11 +60,11 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="navbar-end">
+     { location.pathname==='/dashboard' && <div className="navbar-end">
         <label htmlFor="dashboard-sidebar" tabIndex="0" className="btn btn-ghost lg:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h8m-8 6h16" /></svg>
         </label>
-      </div>
+      </div>}
     </div>
   );
 };

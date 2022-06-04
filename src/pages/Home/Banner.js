@@ -1,6 +1,6 @@
 import React from 'react';
 import banner1 from '../../assets/Banner/banner1.jpg'
-import banner2 from '../../assets/Banner/banner2.jpg'
+import banner2 from '../../assets/Banner/food.jpg'
 import banner3 from '../../assets/Banner/banner3.jpg'
 import banner4 from '../../assets/Banner/banner5.jpg'
 
@@ -17,10 +17,10 @@ const Banner = () => {
             {/* <div class="hero-overlay"></div> */}
             <div class="hero-content text-center text-neutral-content">
               <div class="max-w-md">
-                <h1 class="mb-3 text-4xl font-bold text-base-700">DJI ACTION 2</h1>
-                <p class="mb-5">More Than Action</p>
-                <button class="btn btn-outline text-neutral-content mr-3 btn-sm" >Learn More</button>
-                <button class="btn btn-outline btn-success btn-sm">Purchase</button>
+                <h1 class="mb-3 text-4xl font-bold text-primary">Best Room Services</h1>
+                <p class="mb-5 text-natural">To know more about our hostel management</p>
+                <button class="btn  text-neutral-content mr-3 btn-sm" >Learn More</button>
+                <button class="btn  btn-success btn-sm">Register</button>
               </div>
             </div>
           </div>
@@ -30,17 +30,17 @@ const Banner = () => {
           </div>
         </div> 
         <div id="slide2" class="carousel-item relative w-full">
-          <div class="hero max-h-screen" style={{
+          <div class="hero" style={{
               background: `url(${banner2})`,
               backgroundSize: 'cover'
             }}>
             
             <div class="hero-content text-center text-neutral-content">
               <div class="max-w-md">
-                <h1 class="mb-3 text-4xl font-bold text-base-700">DJI ACTION 2</h1>
-                <p class="mb-5">More Than Action</p>
+                <h1 class="mb-3 text-4xl font-bold text-primary">Best Food Services</h1>
+                <p class="mb-5 text-accent">To know more about our hostel management</p>
                 <button class="btn btn-outline text-neutral-content mr-3 btn-sm" >Learn More</button>
-                <button class="btn btn-outline btn-success btn-sm">Purchase</button>
+                <button class="btn btn-outline btn-success btn-sm">Register</button>
               </div>
             </div>
           </div>
@@ -57,10 +57,9 @@ const Banner = () => {
             
             <div class="hero-content text-center text-neutral-content">
               <div class="max-w-md">
-                <h1 class="mb-3 text-4xl font-bold text-base-700">DJI ACTION 2</h1>
-                <p class="mb-5">More Than Action</p>
+                <h1 class="mb-3 text-4xl font-bold text-primary">Student Review</h1>
+                <p class="mb-5 text-accent">To know more about our hostel Review</p>
                 <button class="btn btn-outline text-neutral-content mr-3 btn-sm" >Learn More</button>
-                <button class="btn btn-outline btn-success btn-sm">Purchase</button>
               </div>
             </div>
           </div>
@@ -77,10 +76,10 @@ const Banner = () => {
             
             <div class="hero-content text-center text-neutral-content">
               <div class="max-w-md">
-                <h1 class="mb-3 text-4xl font-bold text-base-700">DJI ACTION 2</h1>
-                <p class="mb-5">More Than Action</p>
+                <h1 class="mb-3 text-4xl font-bold text-primary">Best hostel services</h1>
+                <p class="mb-5 text-accent">To know more about our hostel management</p>
                 <button class="btn btn-outline text-neutral-content mr-3 btn-sm" >Learn More</button>
-                <button class="btn btn-outline btn-success btn-sm">Purchase</button>
+                <button class="btn btn-outline btn-success btn-sm">Register</button>
               </div>
             </div>
           </div>

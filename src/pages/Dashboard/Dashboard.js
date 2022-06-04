@@ -7,8 +7,6 @@ import Loading from '../Shared/Loading';
 const Dashboard = () => {
   const location = useLocation(); 
   // const [user] = useAuthState(auth);
-  const from = location.state?.from?.pathname; 
-  console.log(from); 
   // const [admin, adminLoading] = useAdmin(user); 
 
   // if(adminLoading) {

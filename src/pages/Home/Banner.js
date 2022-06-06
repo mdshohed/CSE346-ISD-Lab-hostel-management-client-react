@@ -19,8 +19,8 @@ const Banner = () => {
               <div class="max-w-md">
                 <h1 class="mb-3 text-4xl font-bold text-primary">Best Room Services</h1>
                 <p class="mb-5 text-natural">To know more about our hostel management</p>
-                <button class="btn  text-neutral-content mr-3 btn-sm" >Learn More</button>
-                <button class="btn  btn-success btn-sm">Register</button>
+                <button class="btn text-neutral-content mr-3 btn-sm" >Learn More</button>
+                <button class="btn btn-success btn-sm">Register</button>
               </div>
             </div>
           </div>
@@ -39,8 +39,8 @@ const Banner = () => {
               <div class="max-w-md">
                 <h1 class="mb-3 text-4xl font-bold text-primary">Best Food Services</h1>
                 <p class="mb-5 text-accent">To know more about our hostel management</p>
-                <button class="btn btn-outline text-neutral-content mr-3 btn-sm" >Learn More</button>
-                <button class="btn btn-outline btn-success btn-sm">Register</button>
+                <button class="btn  text-neutral-content mr-3 btn-sm" >Learn More</button>
+                <button class="btn  btn-success btn-sm">Register</button>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@ const Banner = () => {
               <div class="max-w-md">
                 <h1 class="mb-3 text-4xl font-bold text-primary">Student Review</h1>
                 <p class="mb-5 text-accent">To know more about our hostel Review</p>
-                <button class="btn btn-outline text-neutral-content mr-3 btn-sm" >Learn More</button>
+                <button class="btn text-neutral-content mr-3 btn-sm" >Learn More</button>
               </div>
             </div>
           </div>
@@ -78,8 +78,8 @@ const Banner = () => {
               <div class="max-w-md">
                 <h1 class="mb-3 text-4xl font-bold text-primary">Best hostel services</h1>
                 <p class="mb-5 text-accent">To know more about our hostel management</p>
-                <button class="btn btn-outline text-neutral-content mr-3 btn-sm" >Learn More</button>
-                <button class="btn btn-outline btn-success btn-sm">Register</button>
+                <button class="btn text-neutral-content mr-3 btn-sm" >Learn More</button>
+                <button class="btn btn-success btn-sm">Register</button>
               </div>
             </div>
           </div>

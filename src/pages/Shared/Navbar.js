@@ -16,40 +16,37 @@ const Navbar = () => {
   }
 
   const menuItems = <>
-    <li><Link to="/">Home</Link></li>
-    <li><Link to="/contact">Contact</Link></li>
-    <li><Link to="/notification">Notification</Link></li>
+    <li><Link className='' to="/home">Home</Link></li>
     {
-      user && <li><Link to="/dashboard">Dashboard</Link></li>
+      user && <>
+        <li><Link to="/registration">Registration</Link></li>
+        <li><Link to="/dashboard">Dashboard</Link></li>
+      </>
     }
+    <li><Link to="/notification">Notification</Link></li>
+    <li><Link to="/contact">Contact</Link></li>
     <li>{user ? 
-      <div className="dropdown-close">
-          <div class="avatar placeholder">
-            <div class="bg-neutral-focus text-neutral-content rounded-full w-8">
-              <span class="text-xs"></span>
-            </div>
-          </div>
-        <div class="dropdown dropdown-end dropdown-hover">
-          <label class="">Account</label>
-          <ul class="dropdown-content p-1 menu shadow bg-base-100 rounded-box w-52 ">
-            {/* <li><a>Profile</a></li> */}
-            <li><button className='btn btn-ghost' onClick={logout}>SignOut</button></li>
-          </ul>
-        </div>
-      </div>
-    // <button className='btn btn-ghost' onClick={logout}>SignOut</button>
-    : <Link to="/login">Login</Link>}</li>
+      // <div className="dropdown-close">
+      //   <div class="dropdown dropdown-end dropdown-hover">
+      //     <label class="">SignOut</label>
+      //     <ul class="dropdown-content p-1 menu shadow bg-base-100 rounded-box w-52 ">
+      //       {/* <li><a>Profile</a></li> */}
+            
+      //     </ul>
+      //   </div>
+      // </div>
+    <button className='btn btn-ghost bg-secondary' onClick={logout}>SignOut</button>
+    : <Link className='bg-secondary' to="/login">Login</Link>}</li>
   </>
   return (
-    <div className="navbar bg-base-100" 
-    >
+    <div className="navbar bg-primary-100 my-3">
       <div className="navbar-start mx-20">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost md:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>
           <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-1 shadow bg-base-100 rounded-box w-52">
-          {menuItems}
+            {menuItems}
           </ul>
         </div>
         <Link as={Link} to="/" className="btn btn-ghost normal-case text-xl">BlueBirds Hostel</Link>

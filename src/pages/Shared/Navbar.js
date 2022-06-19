@@ -3,40 +3,49 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useAdmin from '../../hooks/useAdmin';
+import Loading from './Loading';
 
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
   const location = useLocation();
+  const [admin, adminLoading] = useAdmin(user); 
+
+  // if(adminLoading) {
+  //   return <Loading></Loading>
+  // }
   // const navigate = useNavigate();
 
   const logout = () => {
     signOut(auth);
-    localStorage.removeItem('accessToken'); 
   }
 
   const menuItems = <>
     <li><Link className='' to="/home">Home</Link></li>
     {
       user && <>
-        <li><Link to="/registration">Registration</Link></li>
-        <li><Link to="/dashboard">Dashboard</Link></li>
+        {
+          admin ? 
+          <>
+            <li><Link to="/student">Manage Student</Link></li>
+            {/* <li><Link to="/dashboard">Dashboard</Link></li> */}
+          </>
+          :
+          <>
+            <li><Link to="/registration">Registration</Link></li>
+            <li><Link to="/food">Food</Link></li>
+            <li><Link to="/complaint">Complaint</Link></li>
+          </>
+        }
+        
       </>
     }
     <li><Link to="/notification">Notification</Link></li>
     <li><Link to="/contact">Contact</Link></li>
     <li>{user ? 
-      // <div className="dropdown-close">
-      //   <div class="dropdown dropdown-end dropdown-hover">
-      //     <label class="">SignOut</label>
-      //     <ul class="dropdown-content p-1 menu shadow bg-base-100 rounded-box w-52 ">
-      //       {/* <li><a>Profile</a></li> */}
-            
-      //     </ul>
-      //   </div>
-      // </div>
-    <button className='btn btn-ghost bg-secondary' onClick={logout}>SignOut</button>
-    : <Link className='bg-secondary' to="/login">Login</Link>}</li>
+      <button className='btn btn-ghost bg-secondary' onClick={logout}>SignOut</button>
+      : <Link className='bg-secondary' to="/login">Login</Link>}</li>
   </>
   return (
     <div className="navbar bg-primary-100 my-3">

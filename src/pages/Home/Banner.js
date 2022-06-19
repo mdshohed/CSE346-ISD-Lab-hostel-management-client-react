@@ -3,8 +3,10 @@ import banner1 from '../../assets/Banner/banner1.jpg'
 import banner2 from '../../assets/Banner/food.jpg'
 import banner3 from '../../assets/Banner/banner3.jpg'
 import banner4 from '../../assets/Banner/banner5.jpg'
+import { Link, useNavigate } from 'react-router-dom';
 
 const Banner = () => {
+
   return (
      <div>
        <div class="carousel max-h-md">
@@ -20,13 +22,13 @@ const Banner = () => {
                 <h1 class="mb-3 text-4xl font-bold text-primary">Best Room Services</h1>
                 <p class="mb-5 text-natural">To know more about our hostel management</p>
                 <button class="btn text-neutral-content mr-3 btn-sm" >Learn More</button>
-                <button class="btn btn-success btn-sm">Register</button>
+                <Link to="/registration" class="btn btn-success btn-sm">Register</Link>
               </div>
             </div>
           </div>
           <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide4" class="btn btn-circle btn-sm ">❮</a> 
-            <a href="#slide2" class="btn btn-circle btn-sm">❯</a>
+            <a  href="#slide2" class="btn btn-circle btn-sm">❯</a>
           </div>
         </div> 
         <div id="slide2" class="carousel-item relative w-full">
@@ -40,7 +42,7 @@ const Banner = () => {
                 <h1 class="mb-3 text-4xl font-bold text-primary">Best Food Services</h1>
                 <p class="mb-5 text-accent">To know more about our hostel management</p>
                 <button class="btn  text-neutral-content mr-3 btn-sm" >Learn More</button>
-                <button class="btn  btn-success btn-sm">Register</button>
+                <Link to="/registration" class="btn btn-success btn-sm">Register</Link>
               </div>
             </div>
           </div>
@@ -60,6 +62,7 @@ const Banner = () => {
                 <h1 class="mb-3 text-4xl font-bold text-primary">Student Review</h1>
                 <p class="mb-5 text-accent">To know more about our hostel Review</p>
                 <button class="btn text-neutral-content mr-3 btn-sm" >Learn More</button>
+                <Link to="/registration" class="btn btn-success btn-sm">Register</Link>
               </div>
             </div>
           </div>
@@ -79,7 +82,7 @@ const Banner = () => {
                 <h1 class="mb-3 text-4xl font-bold text-primary">Best hostel services</h1>
                 <p class="mb-5 text-accent">To know more about our hostel management</p>
                 <button class="btn text-neutral-content mr-3 btn-sm" >Learn More</button>
-                <button class="btn btn-success btn-sm">Register</button>
+                <Link to="/registration" class="btn btn-success btn-sm">Register</Link>
               </div>
             </div>
           </div>

@@ -4,6 +4,8 @@ import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
+import './Login.css'
+import useSetUser from '../../hooks/useSetUser';
 
 const SignUp = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -16,6 +18,7 @@ const SignUp = () => {
   ] = useCreateUserWithEmailAndPassword(auth);
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [admin] = useSetUser( user || gUser); 
 
   const navigate = useNavigate(); 
 
@@ -24,6 +27,8 @@ const SignUp = () => {
   if( loading || gLoading || updating) {
     return <Loading></Loading>
   }
+
+
 
   if(user || gUser) {
     navigate('/');
@@ -39,19 +44,19 @@ const SignUp = () => {
   }
 
   return (
-    <div  className='flex justify-center items-center h-screen'>
+    <div  className='flex justify-center items-center h-screen' id='login'>
       <div  className="card w-96 bg-base-100 shadow-xl">
         <div  className="card-body ">
           <h2  className="text-center">Sign Up</h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-control w-full max-w-xs">
+          <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-1 gap-10'>
+            <div className="flex items-center ">
               <label className="label">
-                <span className="label-text">Name</span>
+                <i class="fa-solid fa-user "></i>
               </label>
               <input 
                 type="name" 
                 placeholder="Your Name" 
-                className="input input-bordered w-full max-w-xs" 
+                className="form__field  w-full max-w-md" 
                 {...register("name", {
                   required: {
                     value: true, 
@@ -63,14 +68,14 @@ const SignUp = () => {
                 {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
               </label>
             </div>
-            <div className="form-control w-full max-w-xs">
+            <div className="flex items-center">
               <label className="label">
-                <span className="label-text">Email</span>
+                <i class="fa-solid fa-envelope"></i>
               </label>
               <input 
                 type="email" 
                 placeholder="Your Email" 
-                className="input input-bordered w-full max-w-xs" 
+                className="form__field w-full max-w-sm"  
                 {...register("email", {
                   required: {
                     value: true, 
@@ -87,14 +92,14 @@ const SignUp = () => {
                 {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
               </label>
             </div>
-            <div className="form-control w-full max-w-xs">
+            <div className="flex items-center ">
               <label className="label">
-                <span className="label-text">Password</span>
+                <i class="fa-solid fa-lock"></i>
               </label>
               <input 
                 type="password" 
                 placeholder="Your password" 
-                className="input input-bordered w-full max-w-xs" 
+                className="form__field w-full max-w-sm"  
                 {...register("password", {
                   required: {
                     value: true, 

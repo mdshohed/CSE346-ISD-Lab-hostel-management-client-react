@@ -1,0 +1,19 @@
+#complaint{
+  /* background-image: linear-gradient(54deg,rgba(45,105,134) 40%,hsla(0,34%,71%,.95)).url('../../assets/images/complaint.jpg'); */
+  background-image: linear-gradient(
+    54deg,rgba(74,76,179,.95) 34%,hsla(0,34%,71%,.95));
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: right;
+  min-height:500px;
+  background-size: cover;
+}
+#registration{
+  background-image: linear-gradient(
+    54deg,rgba(74,76,179,.95) 34%,hsla(0,34%,71%,.95));
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: right;
+  min-height:500px;
+  background-size: cover;
+}

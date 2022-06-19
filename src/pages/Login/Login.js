@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading.js';
+import './Login.css'
+import useSetUser from '../../hooks/useSetUser.js';
 
 
 const Login = () => {
@@ -17,16 +19,20 @@ const Login = () => {
     error,
   ] = useSignInWithEmailAndPassword(auth);
 
-  const [userAuth] = useAuthState(auth); 
+  // const [userAuth] = useAuthState(auth); 
 
 
   const navigate = useNavigate(); 
   const location = useLocation(); 
   let from = location.state?.from?.pathname || "/";
 
-  if(userAuth || user || gUser) {
+  const [admin] = useSetUser( user || gUser); 
+
+  if( user || gUser) {
+    
     navigate(from, { replace: true });
   }
+    
 
   if( loading || gLoading) {
     return <Loading></Loading>
@@ -38,9 +44,9 @@ const Login = () => {
     signInError = <p className='text-red-500'>{error?.message || gError?.message}</p>
   }
 
-  const onSubmit = data => {
-    console.log(data.email, data.password);
-    signInWithEmailAndPassword(data.email, data.password); 
+  const onSubmit = async data => {
+    await signInWithEmailAndPassword(data.email, data.password); 
+    
   }
 
   // const resetPassword = async()=>{
@@ -55,21 +61,21 @@ const Login = () => {
   // }
 
   return (
-    <div className='flex justify-center items-center h-screen '>
+    <div className='flex justify-center items-center h-screen ' id='login'>
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body ">
-          <h2 className="text-center">Login</h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-control w-full max-w-xs">
+          <h2 className="text-center text-4xl m-5">Login</h2>
+          <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-1 gap-10'>
+            <div className="flex items-center">
               <label className="label">
-                <span className="label-text">Email</span>
+                <i class="fa-solid fa-envelope"></i>
               </label>
               <input 
                 name='email'
                
                 type="email" 
                 placeholder="Your Email" 
-                className="input input-bordered w-full max-w-xs" 
+                className="form__field w-full max-w-xs" 
                 {...register("email", {
                   required: {
                     value: true, 
@@ -86,15 +92,15 @@ const Login = () => {
                 {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
               </label>
             </div>
-            <div className="form-control w-full max-w-xs">
+            <div className="flex items-center">
               <label className="label">
-                <span className="label-text">Password</span>
+                <i class="fa-solid fa-lock"></i>
                 {/* <a onClick={resetPassword} className="link link-accent" >Forgot Password?</a> */}
               </label>
               <input 
                 type="password" 
                 placeholder="Your password" 
-               className="input input-bordered w-full max-w-xs" 
+               className="form__field w-full max-w-xs" 
                 {...register("password", {
                   required: {
                     value: true, 
